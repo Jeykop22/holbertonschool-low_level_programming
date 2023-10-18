@@ -11,5 +11,6 @@ int print_last_digit(int n);
 int _abs(int x);
 char _putchar(char c);
 void times_table(void);
+int add(int, int);
 
 #endif
