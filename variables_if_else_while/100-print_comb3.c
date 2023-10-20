@@ -7,23 +7,25 @@
 
 int main(void)
 {
-	int a, b, c;
+	int a = 48;
+	int b = 49;
 
-	for (a = 0; a < 56; a++)
+	while (a < 57)
 	{
-		for (b = a + 1; b <= 57; b++)
+		while (b <= 57)
 		{
-			for (c = b + 1; c <= 57 ; c++)
+
+			putchar(a);
+			putchar(b);
+			if (b <= 57 && a < 56)
 			{
-				putchar(a);
-				putchar(b);
-				putchar(c);
-				if (a == 55 && b == 56 && c == 57)
-					break;
 				putchar(',');
 				putchar(' ');
 			}
+			b++;
 		}
+		a++;
+		b = a + 1;
 	}
 	putchar('\n');
 	return (0);
