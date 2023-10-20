@@ -1,19 +1,21 @@
 #include <stdio.h>
 /**
  * main -entry point
- * Description: print comb of two digits
+ * Description: print comb of three digits
  * Return: Always 0 (SUCCESS)
  */
 
 int main(void)
 {
-	int a, b, c;
+	int a = 48;
+	int b = 49;
+	int c = 50;
 
-	for (a = 0; a < 56; a++)
+	while (a < 56)
 	{
-		for (b = a + 1; b <= 57; b++)
+		while (b < 57)
 		{
-			for (c = b + 1; c <= 57 ; c++)
+			while (c <= 57)
 			{
 				putchar(a);
 				putchar(b);
@@ -22,8 +24,13 @@ int main(void)
 					break;
 				putchar(',');
 				putchar(' ');
+				c++;
 			}
+			b++;
+			c = b + 1;
 		}
+		a++;
+		b = a + 1;
 	}
 	putchar('\n');
 	return (0);
