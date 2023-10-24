@@ -22,7 +22,7 @@ int _strlen(char *s)
  * @src: second
  * @n: third
  * Return: dest
- */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
+ */
 char *_strncat(char *dest, char *src, int n)
 {
 	int len = _strlen(dest);
@@ -30,6 +30,6 @@ char *_strncat(char *dest, char *src, int n)
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
 		dest[len + i] = src[i];
-	dest[len + 1] = '\0';
+	dest[len + i] = '\0';
 	return (dest);
 }
