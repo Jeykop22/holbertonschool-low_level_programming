@@ -1,6 +1,13 @@
 #include "main.h"
 #include <stdlib.h>
 
+/**
+ * argstostr - Concatenates all arguments of the program into a string;
+ * @ac: The number of arguments passed to the program.
+ * @av: An array of pointers to the arguments.
+ * Return: (NULL if empty or fail) or success
+ */
+
 char *argstostr(int ac, char **av)
 {
 	char *str;
