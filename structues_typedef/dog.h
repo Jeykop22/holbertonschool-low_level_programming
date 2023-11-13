@@ -17,7 +17,7 @@ struct dog
 };
 
 /**
- * poppy - Typedef for dog structure
+ * poppy - Typedef for struct dog
  */
 typedef struct dog dog_t;
 
