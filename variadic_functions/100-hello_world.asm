@@ -13,5 +13,5 @@ section .text
         syscall
 
         mov rax, 60
-        mov rdi, rdi
+        mov rdi, 0
         syscall
