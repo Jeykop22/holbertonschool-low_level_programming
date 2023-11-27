@@ -1,7 +1,9 @@
 #ifndef _HEADER_
 #define _HEADER_
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 typedef struct list_s
 {
