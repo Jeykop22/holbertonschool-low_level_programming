@@ -27,6 +27,12 @@ unsigned int binary_to_uint(const char *b)
 	return (sum);
 }
 
+/**
+ * _strlen - get the size of the string
+ * @s: string
+ *
+ * Return: int
+*/
 int _strlen(const char *s)
 {
 	int c = 0;
