@@ -11,17 +11,17 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	unsigned int i = 0;
 	hash_table_t *h_table = NULL;
-	hash_node_t **array = NULL;
+	hash_node_t **arr = NULL;
 
 	h_table = malloc(sizeof(hash_table_t));
 	if (!h_table)
 		return (NULL);
-	array = malloc(sizeof(hash_node_t *) * size);
-	if (!array)
+	arr = malloc(sizeof(hash_node_t *) * size);
+	if (!arr)
 		return (NULL);
-	for (i = 0; i < size; i++)
-		array[i] = NULL;
+	for (; i < size; i++)
+		arr[i] = NULL;
 	h_table->size = size;
-	h_table->array = array;
+	h_table->array = arr;
 	return (h_table);
 }
