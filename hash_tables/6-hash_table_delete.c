@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * hash_table_delete - function that deletes a hash table
+ * @ht: hash_table
+ *
+ * Return: ...
+*/
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i = 0;
