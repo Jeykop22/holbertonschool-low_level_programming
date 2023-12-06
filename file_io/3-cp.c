@@ -29,8 +29,7 @@ int main(int argc, char **argv)
 	umask(old_mask);
 	while ((readed = read(from_fd, size, 1024)) > 0)
 	{
-		if ((write(to_fd, size, readed) != readed) || (to_fd == -1)
-		|| write(to_fd, size, readed) == -1)
+		if ((write(to_fd, size, readed) != readed) || (to_fd == -1))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
