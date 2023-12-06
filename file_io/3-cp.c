@@ -29,7 +29,8 @@ int main(int argc, char **argv)
 	umask(old_mask);
 	while ((readed = read(from_fd, size, 1024)) > 0)
 	{
-		if ((write(to_fd, size, readed) != readed ) || (to_fd == -1))
+		if ((write(to_fd, size, readed) != readed) || (to_fd == -1)
+		|| write(to_fd, size, readed) == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
@@ -40,14 +41,10 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
 		exit(98);
 	}
-	if (close(from_fd) == -1)
+	if (close(from_fd) == -1 || close(to_fd) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from_fd);
-		exit(100);
-	}
-	if (close(to_fd) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to_fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (close(from_fd) == -1)
+		? from_fd : to_fd);
 		exit(100);
 	}
 	return (0);
