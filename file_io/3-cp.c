@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <sys/stat.h>
 
 /**
  * main - entry point
@@ -10,6 +11,7 @@
 int main(int argc, char **argv)
 {
 	int from_fd, to_fd, readed;
+	mode_t old_mask = umask(0);
 	char *size[1024];
 
 	if (argc != 3)
@@ -24,6 +26,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	to_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	umask(old_mask);
 	while ((readed = read(from_fd, size, 1024)) > 0)
 	{
 		if (write(to_fd, size, readed) != readed || to_fd == -1)
