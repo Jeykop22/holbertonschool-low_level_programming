@@ -9,7 +9,7 @@
 */
 int main(int argc, char **argv)
 {
-	int from_fd, to_fd, readed, writed;
+	int from_fd, to_fd, readed;
 	char *size[1024];
 
 	if (argc != 3)
@@ -26,20 +26,15 @@ int main(int argc, char **argv)
 	to_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	while ((readed = read(from_fd, size, 1024)) > 0)
 	{
-		writed = write(to_fd, size, readed);
-		if (writed != readed || writed == -1)
+		if (write(to_fd, size, readed) != readed || to_fd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(from_fd);
-			close(to_fd);
 			exit(99);
 		}
 	}
 	if (readed == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
-		close(from_fd);
-		close(to_fd);
 		exit(98);
 	}
 	if (close(from_fd) == -1)
